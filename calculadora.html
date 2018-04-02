@@ -1,48 +1,155 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+
     <title>Calculadora</title>
+
 </head>
+
+<script language="javascript">
+    op = "";
+    num1 = "";
+    num2 = "";
+    resp = "";
+    function mostra(x) {
+        document.formulario.calculo.value += x;
+    }
+    function coleta(y) {
+        if (op == "") {
+            op = y;
+            num1 = document.formulario.calculo.value;
+            document.formulario.calculo2.value = num1 + op;
+            document.formulario.calculo.value = '';
+        }
+        else {
+            alert("Não é possível realizar duas operacões");
+        }
+    }
+    function calcula() {
+        if (op == "") {
+            alert("Selecione uma operação");
+        }
+        else {
+            num2 = document.formulario.calculo.value;
+            resp = num1 + op + num2;
+            document.formulario.calculo.value = eval(resp);
+            document.formulario.calculo2.value = "";
+        }
+    }
+    function novocalculo() {
+        num1 = "";
+        num2 = "";
+        op = "";
+        resp = "";
+        document.formulario.calculo.value = "";
+    }
+    function limpa() {
+        document.formulario.calculo.value = "";
+        document.formulario.calculo2.value = "";
+    }
+    function apagaValor() {
+        valorAtual = calculo.value;
+        valorNovo = valorAtual.substring(0, valorAtual.length - 1);
+        calculo.value = valorNovo;
+    }
+    function trocaSinal() {
+        if (calculo != "") {
+            valor = calculo.value;
+            calculo.value = valor * -1;
+        }
+    }
+</script>
+
 <body>
-<center> 
-<table width="200" cellpadding="3" cellspacing="5">
-    <input type="text"
-        readonly="readonly"
-        disabled="disabled" />
-    <br />
-    <input type="text"
-        readonly="readonly"
-        disabled="disabled"
-        placeholder="informe o valor aqui" />
-    <br />
-    <input type="button" value="CE" />
-    <input type="button" value="C" />
-    <input type="button" value="&lArr;" />
-    <input type="button" value="&sol;" />
-    <br />
-    <input type="button" value="7" />
-    <input type="button" value="8" />
-    <input type="button" value="9" />
-    <input type="button" value="&times;" />
-    <br />
-    <input type="button" value="4" />
-    <input type="button" value="5" />
-    <input type="button" value="6" />
-    <input type="button" value="&minus;" />
-    <br />
-    <input type="button" value="3" />
-    <input type="button" value="2" />
-    <input type="button" value="1" />
-    <input type="button" value="&plus;" />
-    <br />
-    <input type="button" value="&plusmn;" />
-    <input type="button" value="0" />
-    <input type="button" value="&comma;" />
-    <input type="button" value="&equals;" />
+<center>
+    <div class="calculadora">
+  <table>
+ <form name="formulario">
+    <input class="visor2" type="text" id="calculo2" readonly="readonly" disabled="disabled">
+  <br/>
+    <input class="visor" type="text" id="calculo" readonly="readonly" disabled="disabled" placeholder="Digite " />
+ </form>
+<tr>
+ <td>
+    <input class="acao" type="button" value="CE" id="Rest" onclick="novocalculo();" />
+</td>
+ <td>
+    <input class="acao" type="button" value="C" id="limpa" onclick="limpa();"> </td>
+<td>
+    <input class="acao" type="button" value="&lArr;" id="apaga" onclick="apagaValor()" />
+</td>
+ <td>
+    <input class="sinal" type="button" value="/" id="botao/" onclick="coleta('/');">
+ </td>
+</tr>
+<tr>
+<td>
+    <input class="numero" type="button" value="7" id="botao7" onclick="mostra(7);">
+</td>
+<td>
+   <input class="numero" type="button" value="8" id="botao8" onclick="mostra(8);">
+</td>
+ <td>
+   <input class="numero" type="button" value="9" id="botao9" onclick="mostra(9);">
+</td>
+<td>
+  <input class="sinal" type="button" value="x" id="botao*" onclick="coleta('*');">
+ </td>
+
+</tr>
+ <tr>
+<td>
+   <input class="numero" type="button" value="4" id="botao4" onclick="mostra(4);">
+</td>
+ <td>
+   <input class="numero" type="button" value="5" id="botao5" onclick="mostra(5);">
+ </td>
+<td>
+   <input class="numero" type="button" value="6" id="botao6" onclick="mostra(6);">
+</td>
+<td>
+    <input class="sinal" type="button" value="-" id="botao-" onclick="coleta('-');">
+</td>
+</tr>
+<tr>
+<td>
+      <input class="numero" type="button" value="1" id="botao1" onclick="mostra(1);">
+</td>
+ <td>
+   <input class="numero" type="button" value="2" id="botao2" onclick="mostra(2);">
+</td>
+<td>
+   <input class="numero" type="button" value="3" id="botao3" onclick="mostra(3);">
+</td>
+<td>
+   <input class="sinal" type="button" value="+" id="botao+" onclick="coleta('+');">
+</td>
+</tr>
+<tr>
+<td>
+    <input class="sinal" type="button" value="&plusmn;" id="botao+-" onclick="trocaSinal();" />
+</td>
+ <td>
+     <input class="numero" type="button" value="0" id="botao0" onclick="mostra(0);" />
+</td>
+<td>
+    <input class="sinal" type="button" value="." id="ponto" onclick="mostra('.');"> </td>
+ <td>
+    <input class="sinal" type="button" value="=" id="botao=" onclick="calcula();" />
+</td>
+</tr>
+<tr>
+</tr>
+
 </table>
-</center>       
+ </div>
+</center>
 </body>
+
 </html>
