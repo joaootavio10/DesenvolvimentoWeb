@@ -1,0 +1,63 @@
+*{
+    background: #858484;
+    margin: 0px;
+    padding: 0px;
+}
+
+.calculadora{
+	position: relative;
+	top: 125px;
+}
+
+.numero{
+    font-size: 30px;
+    font-family: Arial,Helvetica;
+    color: black;
+    border: 0px;
+    background: #f1f1f1;
+    width: 80px;
+    height: 80px;
+}
+
+.sinal{
+    font-size: 40px;
+    font-family: Arial,Helvetica;
+    color: #000000;
+    border: 0px;
+    background: #c2c2c2;
+    width: 80px;
+    height: 80px;
+}
+
+.acao{
+    font-size: 30px;
+    font-family: Arial,Helvetica;
+    color: black;
+    border: 0px;
+    background: #c2c2c2;
+    width: 80px;
+    height: 80px;
+}
+
+.visor{
+	font-size: 40px;
+	font-family: Arial,Helvetica;
+	color: #000000;
+	border: 0px;
+	background: #c2c2c2;
+	width: 325.8px;
+    height: 70px;
+    text-align: right;
+}
+
+.visor2{
+    letter-spacing: 3px;
+	font-size: 20px;
+	font-family: Arial,Helvetica;
+	color: #000000;
+	border: 0px;
+	background: #c2c2c2;
+	width: 325.8px;
+    height: 70px;
+    text-align: right;
+}
